@@ -6,7 +6,11 @@ opponent's pokemon.
 
 from poke_env.player import Player
 
-class SwitchingMaxDamage(Player)
+class SwitchingMaxDamage(Player):
+    """
+    Agent is MaxDamage but prioritizes switching to max
+    damage pokemon against opponent pokemon.
+    """
     def choose_move(self, battle):
         # TODO: Implement priortized switching behavior
 
