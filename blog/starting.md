@@ -20,7 +20,7 @@
 
 # TODOs
 - Evaluate a mixed bag of agents against eachother
-    - random, max-damage
+    - ~~random, max-damage~~, SimpleHeuristicsPlayer
     - look at the metrics, try to think of 5 other metrics to keep track of
         - look at games for interesting proxies
     - make my own agent and evaluate it against the others
