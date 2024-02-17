@@ -23,7 +23,8 @@
     - ~~random, max-damage~~, SimpleHeuristicsPlayer
     - look at the metrics, try to think of 5 other metrics to keep track of
         - look at games for interesting proxies
-    - make my own agent and evaluate it against the others
+    - ~~make my own agent and evaluate it against the others~~
+        - I implemented `SwitchingMaxDamage`, it seems to outperform Random in general, and it outperforms `MaxDamage` in rock-paper-scissor, but in OU7-random it is about equal in performance. Any ideas why ?
 - start looking into MCTS / minmax w/ alpha-beta pruning approach (model based planning)
 - consider: start with small pool of pokemon
     - specify gen 1?
