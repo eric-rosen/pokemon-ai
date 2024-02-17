@@ -24,7 +24,8 @@
     - look at the metrics, try to think of 5 other metrics to keep track of
         - look at games for interesting proxies
     - ~~make my own agent and evaluate it against the others~~
-        - I implemented `SwitchingMaxDamage`, it seems to outperform Random in general, and it outperforms `MaxDamage` in rock-paper-scissor, but in OU7-random it is about equal in performance. Any ideas why ?
+        - I implemented `SwitchingMaxDamage`, it seems to outperform Random in general (gen7-random, rock-paper-scissors), and it outperforms `MaxDamage` in rock-paper-scissor, but in gen7-random it is about equal in performance. Any ideas why ?
+            - possible reason: the `type_advantage` is based on the type of the pokemon, not the moveset. Confirm this in rock paper scissor by taking away useful type move and show it still choosed based on pokemon type. Then make a `type_advatage` that is based on move types (maybe also power?)
 - start looking into MCTS / minmax w/ alpha-beta pruning approach (model based planning)
 - consider: start with small pool of pokemon
     - specify gen 1?
