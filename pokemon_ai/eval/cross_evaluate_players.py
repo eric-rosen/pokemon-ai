@@ -3,8 +3,9 @@ import asyncio
 from tabulate import tabulate
 
 from poke_env import AccountConfiguration, LocalhostServerConfiguration
-from poke_env.player import cross_evaluate, Player, RandomPlayer
+from poke_env.player import cross_evaluate, Player, RandomPlayer, MaxBasePowerPlayer
 from typing import List, Dict, Optional
+from pokemon_ai.agents.switching_max_damage import SwitchingMaxDamage
 
 
 async def cross_evaluate_players(player_classes : List[Player], verbose : bool = True) -> Dict[str, Dict[str, Optional[float]]]:
@@ -34,6 +35,6 @@ async def cross_evaluate_players(player_classes : List[Player], verbose : bool =
 
 
 if __name__ == "__main__":
-    input_player_classes = [RandomPlayer, RandomPlayer, RandomPlayer, RandomPlayer]
+    input_player_classes = [SwitchingMaxDamage, RandomPlayer, MaxBasePowerPlayer]
     result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players(player_classes=input_player_classes))
     print(result_table)
