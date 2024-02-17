@@ -19,12 +19,13 @@ class SwitchingMaxDamage(Player):
         mon_performance : Dict[int, float] = {}
         # For each of our pokemons
         for i, mon in enumerate(battle.team.values()):
+            # TODO: Make sure I'm going over available pokemon that are alive
             # We store their average performance against the current opponent mon
             mon_performance[i] = type_advantage(mon, battle.opponent_active_pokemon)
 
         # We sort our mons by performance
         ordered_mons = sorted(mon_performance, key=lambda k: -mon_performance[k])
-        # print(f"Best mon to use now is: {ordered_mons[0]}")
+        print(f"Best mon to use now is: {ordered_mons[0]}")
 
 
         # If the player can attack, it will

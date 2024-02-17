@@ -8,7 +8,7 @@ from typing import List, Dict, Optional
 from pokemon_ai.agents.switching_max_damage import SwitchingMaxDamage
 
 
-async def cross_evaluate_players(player_classes : List[Player], verbose : bool = True, n_challenges : int = 20) -> Dict[str, Dict[str, Optional[float]]]:
+async def cross_evaluate_players_gen7randombattle(player_classes : List[Player], verbose : bool = True, n_challenges : int = 20) -> Dict[str, Dict[str, Optional[float]]]:
     # TODO: turn return type into a unfied datastruct
     player_configurations : List[AccountConfiguration] = [AccountConfiguration(f"{player_idx} {player_class.__name__}"[:18], None) for player_idx, player_class in enumerate(player_classes)]
     players : List[Player] = [player_class(account_configuration=player_config,
@@ -36,6 +36,6 @@ async def cross_evaluate_players(player_classes : List[Player], verbose : bool =
 
 if __name__ == "__main__":
     input_player_classes = [SwitchingMaxDamage, RandomPlayer, MaxBasePowerPlayer]
-    n_challenges = 20
-    result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players(player_classes=input_player_classes, n_challenges=n_challenges))
+    n_challenges = 1
+    result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players_gen7randombattle(player_classes=input_player_classes, n_challenges=n_challenges))
     print(result_table)
