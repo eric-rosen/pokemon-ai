@@ -6,8 +6,10 @@ opponent's pokemon.
 
 from poke_env.player import Player
 from typing import Dict
+from poke_env.environment.pokemon import Pokemon
 import numpy as np
 from pokemon_ai.metrics.mon_on_mon import type_advantage
+from poke_env.player.battle_order import BattleOrder
 
 class SwitchingMaxDamage(Player):
     """
@@ -18,15 +20,20 @@ class SwitchingMaxDamage(Player):
         # TODO: Implement priortized switching behavior
         mon_performance : Dict[int, float] = {}
         # For each of our pokemons
-        for i, mon in enumerate(battle.team.values()):
-            # TODO: Make sure I'm going over available pokemon that are alive
-            # We store their average performance against the current opponent mon
-            mon_performance[i] = type_advantage(mon, battle.opponent_active_pokemon)
+        # if possible to switch, check if worth doing
+        if battle.available_switches != []:
+            for i, mon in enumerate(battle.available_switches):
+                # TODO: Make sure I'm going over available pokemon that are alive
+                # We store their average performance against the current opponent mon
+                mon_performance[i] = type_advantage(mon, battle.opponent_active_pokemon)
 
-        # We sort our mons by performance
-        ordered_mons = sorted(mon_performance, key=lambda k: -mon_performance[k])
-        print(f"Best mon to use now is: {ordered_mons[0]}")
+            # We sort our mons by performance
+            ordered_mons = sorted(mon_performance, key=lambda k: -mon_performance[k])
+            if mon_performance[ordered_mons[0]] > type_advantage(battle.active_pokemon, battle.opponent_active_pokemon):
+                # Switch to better one
+                return self.create_order(battle.available_switches[ordered_mons[0]])
 
+        # otherwise, attack since it's the best
 
         # If the player can attack, it will
         if battle.available_moves:
