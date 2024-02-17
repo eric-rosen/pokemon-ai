@@ -17,13 +17,12 @@ class SwitchingMaxDamage(Player):
     damage pokemon against opponent pokemon.
     """
     def choose_move(self, battle):
-        # TODO: Implement priortized switching behavior
+        # TODO: confirm this is bug-free
         mon_performance : Dict[int, float] = {}
         # For each of our pokemons
         # if possible to switch, check if worth doing
         if battle.available_switches != []:
             for i, mon in enumerate(battle.available_switches):
-                # TODO: Make sure I'm going over available pokemon that are alive
                 # We store their average performance against the current opponent mon
                 mon_performance[i] = type_advantage(mon, battle.opponent_active_pokemon)
 
