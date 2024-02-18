@@ -9,6 +9,9 @@
 - ? : What format are ya'll working with / what is [OU](https://poke-env.readthedocs.io/en/stable/examples/ou_max_player.html#ou-max-player)?
     - answer: [category in smogon of most allowable category of pokemon?](https://www.smogon.com/dex/ss/formats/ou/)
 - ? : What's the receommended python version (is 3.10 okay?)
+- ? : Can you load the simulator to an arbitrary game state (important for simulating since
+        we want to simulate the results from a state in the middle of a game multiple times.)
+- ? : Anyway to get logs / export / import battles?
 
 
 # References:
