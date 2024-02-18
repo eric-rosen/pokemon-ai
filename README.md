@@ -4,5 +4,7 @@ You can import this library via:
 
 # Exploring AI with pokemon
 - `blog` keeps track of my thoughts
-- `agents` are implementations
-- `eval` is useful for testing `agents`
+- `pokemon_ai` what I'm cooking up
+    - `agents` are implementations
+    - `eval` is useful for testing `agents`
+    - `metrics` heuristics for evaluating states, pokemon, etc.
