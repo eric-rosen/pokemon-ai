@@ -30,11 +30,11 @@ IVs: 0 Atk
 - Water Gun
 """
 
-async def cross_evaluate_players_gen7randombattle(player_classes : List[Player], verbose : bool = True, n_challenges : int = 20) -> Dict[str, Dict[str, Optional[float]]]:
+async def cross_evaluate_players_randombattle(player_classes : List[Player], verbose : bool = True, n_challenges : int = 20, battle_format : str = "gen4randombattle") -> Dict[str, Dict[str, Optional[float]]]:
     # TODO: turn return type into a unfied datastruct
     player_configurations : List[AccountConfiguration] = [AccountConfiguration(f"{player_idx} {player_class.__name__}"[:18], None) for player_idx, player_class in enumerate(player_classes)]
     players : List[Player] = [player_class(account_configuration=player_config,
-            battle_format="gen7randombattle",
+            battle_format=battle_format,
             server_configuration=LocalhostServerConfiguration,
             max_concurrent_battles=10,) for player_class, player_config in zip(player_classes,player_configurations)]
 
@@ -85,7 +85,8 @@ async def cross_evaluate_players_gen8ou_simple(player_classes : List[Player], ve
 if __name__ == "__main__":
     input_player_classes = [SwitchingMaxDamage, RandomPlayer]
     n_challenges = 20
-    #result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players_gen7randombattle(player_classes=input_player_classes, n_challenges=n_challenges))
-    #print(result_table)
-    result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players_gen8ou_simple(player_classes=input_player_classes, n_challenges=n_challenges))
+    battle_format = "gen4randombattle"
+    result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players_randombattle(player_classes=input_player_classes, n_challenges=n_challenges, battle_format=battle_format))
     print(result_table)
+    #result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players_gen8ou_simple(player_classes=input_player_classes, n_challenges=n_challenges))
+    #print(result_table)
