@@ -8,21 +8,21 @@ from typing import List, Dict, Optional
 from pokemon_ai.agents.switching_max_damage import SwitchingMaxDamage
 
 team1 = """
-Charmander @ Leftovers
+Charmander
 Ability: Blaze
 EVs: 248 HP / 8 SpA / 252 Spe
 Timid Nature
 IVs: 0 Atk
 - Ember
 
-Bulbasaur @ Leftovers
+Bulbasaur
 Ability: Overgrow
 EVs: 248 HP / 8 SpA / 252 Spe
 Timid Nature
 IVs: 0 Atk
 - Vine Whip
 
-Squirtle @ Leftovers
+Squirtle 
 Ability: Torrent
 EVs: 248 HP / 8 SpA / 252 Spe
 Timid Nature
@@ -83,7 +83,7 @@ async def cross_evaluate_players_gen8ou_simple(player_classes : List[Player], ve
 
 
 if __name__ == "__main__":
-    input_player_classes = [SwitchingMaxDamage, RandomPlayer, MaxBasePowerPlayer]
+    input_player_classes = [SwitchingMaxDamage, RandomPlayer]
     n_challenges = 20
     #result_table = asyncio.get_event_loop().run_until_complete(cross_evaluate_players_gen7randombattle(player_classes=input_player_classes, n_challenges=n_challenges))
     #print(result_table)

@@ -34,14 +34,15 @@
 - consider: start with small pool of pokemon
     - specify gen 1?
 - Look into the [showdown bots](http://sahovic.fr/pokemon-ai-resources/)
+- make it easier for me to find battles / load them (e.g: situations where my agent loses)
 
 # My strategy ideas
 - Switching MaxDamage
     - MaxDamage agent, but if I can switch to a better pokemon to kill you, I do it
     - Issues:
-        - it loses to random in rock/paper/sccissor because random switches, causing my agent to switch, and so instead of doing damage i just switch around. i mostly lose since they got lucky causing burn on
-        my pokemon so i slowly die.
-            - takeaway: need to prioritize more damage over switching so much
+        - it loses to random in rock/paper/sccissor because opponent is switching out a lot
+            - my agent ends up not doing much damage cause it spends time switching (generally an opponent switch causes me to switch)
+            - my agent does two switches in a row when opponent pokemon dies, they throw in pokemon 1 (which my agent decides to switch against) and their first move is switch to pokemon 2. When I switch my pokemon in, I immediately switch again to prioritize pokemon 2.
 
 # Agent specification
 def Class(Player):
