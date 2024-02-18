@@ -1,4 +1,3 @@
-# [2/17/2024]
 # Current Goals
 - Focus on: How do we make the best performing agent?
     - Keep track of best performing agents
@@ -11,6 +10,7 @@
 - ? : What's the receommended python version (is 3.10 okay?)
 - ? : Can you load the simulator to an arbitrary game state (important for simulating since
         we want to simulate the results from a state in the middle of a game multiple times.)
+        - A : Seems like it would need to be done through showdown...
 - ? : Anyway to get logs / export / import battles?
 
 
@@ -29,6 +29,7 @@
     - ~~make my own agent and evaluate it against the others~~
         - I implemented `SwitchingMaxDamage`, it seems to outperform Random in general (gen7-random, rock-paper-scissors), and it outperforms `MaxDamage` in rock-paper-scissor, but in gen7-random it is about equal in performance. Any ideas why ?
             - possible reason: the `type_advantage` is based on the type of the pokemon, not the moveset. Confirm this in rock paper scissor by taking away useful type move and show it still choosed based on pokemon type. Then make a `type_advatage` that is based on move types (maybe also power?)
+            - why doesn't it beat random every time?
 - start looking into MCTS / minmax w/ alpha-beta pruning approach (model based planning)
 - consider: start with small pool of pokemon
     - specify gen 1?
@@ -37,6 +38,10 @@
 # My strategy ideas
 - Switching MaxDamage
     - MaxDamage agent, but if I can switch to a better pokemon to kill you, I do it
+    - Issues:
+        - it loses to random in rock/paper/sccissor because random switches, causing my agent to switch, and so instead of doing damage i just switch around. i mostly lose since they got lucky causing burn on
+        my pokemon so i slowly die.
+            - takeaway: need to prioritize more damage over switching so much
 
 # Agent specification
 def Class(Player):
