@@ -12,6 +12,7 @@
         we want to simulate the results from a state in the middle of a game multiple times.)
         - A : Seems like it would need to be done through showdown...
 - ? : Anyway to get logs / export / import battles?
+- ? : Can battles end in a tie? (I think i've seen cases where the cross-eval doesn't add to 1?)
 
 
 # References:

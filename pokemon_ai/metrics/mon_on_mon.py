@@ -14,6 +14,7 @@ def type_advantage(mon_a : Pokemon, mon_b : Pokemon) -> float:
     Calculates type advantage over best move of a_on_b, b_on_a,
     then returns a_on_b - b_on_a. This comes from poke_env
     """
+    # TODO: Make this type calculation pass the correct type chart based on the generation
     # We evaluate the performance on mon_a against mon_b as its type advantage
     a_on_b = b_on_a = -np.inf
     for a_type in mon_a.types:
